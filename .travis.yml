@@ -1,0 +1,10 @@
+language: objective-c
+
+before_script:
+  - brew install shellcheck
+
+script:
+  - script/ci
+
+notifications:
+  email: false
