@@ -1,0 +1,7 @@
+.DS_Store
+.idea
+.sublime-project
+.sublime-workspace
+db/*.sqlite3.backup
+vendor/bundle
+.fs.yml

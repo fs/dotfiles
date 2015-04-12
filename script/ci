@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -e
+
+shellcheck --exclude=SC2148,SC2034 ./**/*.bash script/*

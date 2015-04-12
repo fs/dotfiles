@@ -1,0 +1,54 @@
+[user]
+  name = AUTHORNAME
+  email = AUTHOREMAIL
+  helper = osxkeychain
+
+[color]
+  branch = auto
+  diff = auto
+  pager = true
+  status = auto
+  interactive = auto
+  showbranch = auto
+
+[fetch]
+  prune = true
+
+[merge]
+  summary = true
+  conflictstyle = diff3
+
+[push]
+  default = tracking
+
+[core]
+  autocrlf = input
+  excludesfile = /Users/WHOAMI/.gitignore
+
+[alias]
+  s = status --short --branch
+  st = status
+  ci = commit --verbose
+  ca = commit --all --verbose
+  bl = blame -MwC
+  br = branch
+  bra = branch --all
+  sb = show-branch --more=20
+  sba = show-branch --all --more=20
+  co = checkout
+  df = diff
+  dc = diff --cached
+  dw = diff --word-diff=color
+  dfc = !git dc
+  wc = whatchanged
+  lg = log --graph --pretty=format:'%C(blue)%h%Creset %s %Cgreen(%cr)%Creset %cn %C(yellow)%d%Creset' --abbrev-commit
+  l = log --oneline --decorate
+  cp = cherry-pick
+  gr = grep --break --line-number --color
+  count = !git shortlog -sn
+  last = log --since '1 day ago' --pretty=format:\"%C(yellow)%h %C(blue)%cr%C(red)%d %C(reset)%s%C(green) [%cn]\" --decorate --date=short
+  last-branch = !git for-each-ref --sort=-committerdate --format='%(committerdate:relative) %(refname:short) [%(committername)]' | head
+  build-number = !echo $(git log --oneline | wc -l)
+
+[credential]
+  helper = osxkeychain

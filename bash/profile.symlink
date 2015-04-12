@@ -1,0 +1,21 @@
+# fix PATH before all
+export PATH=/usr/local/bin:${PATH%:/usr/local/bin}
+
+# shortcut to this dotfiles path is $DOTFILES
+export DOTFILES=$HOME/.dotfiles
+
+# your project folder that we can `s<tab>` to
+export PROJECTS=~/src
+
+# use .localrc for SUPER SECRET CRAP that you don't
+# want in your public, versioned repo.
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
+
+# load the path files
+for file in $DOTFILES/**/*.bash
+do
+  source "$file"
+done

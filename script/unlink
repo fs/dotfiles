@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+success() {
+  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] %s\n" "$1"
+}
+
+fail() {
+  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] %s\n" "$1"
+}
+
+echo ''
+
+for source in $(find -L ~/.dotfiles -maxdepth 2 -name \*.symlink)
+do
+  dest="$HOME/.$(basename "${source%.*}")"
+  if rm "$dest" 2> /dev/null
+  then
+    success "removed $dest"
+  else
+    fail "removed $dest"
+  fi
+done
+
+echo ''
