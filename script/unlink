@@ -10,7 +10,7 @@ fail() {
 
 echo ''
 
-for source in $(find -L ~/.dotfiles -maxdepth 2 -name \*.symlink)
+for source in ~/.dotfiles/**/*.symlink
 do
   dest="$HOME/.$(basename "${source%.*}")"
   if rm "$dest" 2> /dev/null
