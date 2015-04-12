@@ -36,22 +36,21 @@ COLOREND='\[\033[0m\]'
 working_directory() {
   local trunc_symbol=".."
   local dir=${PWD##*/}
-  local pwdmaxlen
 
-  pwdmaxlen=$(tput cols)/5
-  pwdmaxlen=$(( ( pwdmaxlen < ${#dir} ) ? ${#dir} : pwdmaxlen ))
+  local pwd_maxlen
+  pwd_maxlen=$(tput cols)/5
+  pwd_maxlen=$(( ( pwd_maxlen < ${#dir} ) ? ${#dir} : pwd_maxlen ))
 
-  NEW_PWD=${PWD/$HOME/\~}
+  local new_pwd=${PWD/$HOME/\~}
+  local pwd_offset=$(( ${#new_pwd} - pwd_maxlen ))
 
-  local pwdoffset=$(( ${#NEW_PWD} - pwdmaxlen ))
-
-  if [ ${pwdoffset} -gt "0" ]
+  if [ ${pwd_offset} -gt "0" ]
   then
-    NEW_PWD=${NEW_PWD:$pwdoffset:$pwdmaxlen}
-    NEW_PWD=${trunc_symbol}/${NEW_PWD#*/}
+    new_pwd=${new_pwd:$pwd_offset:$pwd_maxlen}
+    new_pwd=${trunc_symbol}/${new_pwd#*/}
   fi
 
-  echo -e "${EMBLUE}${NEW_PWD}${COLOREND}"
+  echo "${EMBLUE}${new_pwd}${COLOREND}"
 }
 
 git_state() {
