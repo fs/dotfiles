@@ -7,7 +7,7 @@ export ARCHFLAGS='-arch x86_64'
 
 export LC_CTYPE=ru_RU.UTF-8
 
-export VISUAL=subl
+export VISUAL="subl --wait"
 export EDITOR="$VISUAL"
 export LESS="FRX"
 export RI="--format ansi -T"
