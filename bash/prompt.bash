@@ -34,10 +34,11 @@ BGWHITE='\[\033[47m\]'
 COLOREND='\[\033[0m\]'
 
 working_directory() {
-  local pwdmaxlen=$(tput cols)/5
   local trunc_symbol=".."
   local dir=${PWD##*/}
+  local pwdmaxlen
 
+  pwdmaxlen=$(tput cols)/5
   pwdmaxlen=$(( ( pwdmaxlen < ${#dir} ) ? ${#dir} : pwdmaxlen ))
 
   NEW_PWD=${PWD/$HOME/\~}
