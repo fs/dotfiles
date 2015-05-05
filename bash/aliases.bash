@@ -1,3 +1,3 @@
 alias ll='ls -hla'
-alias dns-flush='sudo killall -HUP mDNSResponder'
+alias dns-flush='sudo discoveryutil mdnsflushcache'
 alias reload!='. ~/.profile'
