@@ -43,6 +43,15 @@ setup_gitconfig() {
   fi
 }
 
+setup_brewfile() {
+  if ! [ -f brew/Brewfile.symlink ]
+  then
+    info 'setup Brewfile from example'
+    cp brew/Brewfile.symlink.example brew/Brewfile.symlink
+    success 'gitconfig'
+  fi
+}
+
 link_files() {
   ln -s "$1" "$2"
   success "linked $1 to $2"
@@ -116,6 +125,7 @@ install_dotfiles() {
 }
 
 setup_gitconfig
+setup_brewfile
 install_dotfiles
 
 echo ''

@@ -1,0 +1,18 @@
+# Use this file to manage Homebrew formalue and casks
+#   https://github.com/Homebrew/homebrew-bundle
+#
+# Install and Update with
+#   brew bundle --global
+
+# tap "homebrew/completions"
+# brew "homebrew/completions/bundler-completion"
+
+# brew "apg"
+# brew "tree"
+# brew "watch"
+# brew "wget"
+# brew "mtr"
+# brew "nmap"
+# brew "shellcheck"
+
+# cask "spectacle"
