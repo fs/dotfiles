@@ -1,5 +1,6 @@
 # fix PATH before all
 export PATH=/usr/local/bin:${PATH%:/usr/local/bin}
+export PATH=/usr/local/sbin:${PATH%:/usr/local/sbin}
 
 # shortcut to this dotfiles path is $DOTFILES
 export DOTFILES=$HOME/.dotfiles
