@@ -32,3 +32,5 @@ There's a few special files in the hierarchy.
 OS X Bootstrap is maintained by [Timur Vafin](http://github.com/timurvafin).
 It was written by [Zack Holman](https://github.com/holman/dotfiles) with the help of
 [contributors](http://github.com/fs/dotfiles/contributors).
+
+[<img src="http://www.flatstack.com/logo.svg" width="100"/>](http://www.flatstack.com)
