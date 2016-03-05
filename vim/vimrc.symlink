@@ -1,52 +1,65 @@
-set number
-set t_Co=256
+" ========== General ==========
+
+" Use Vim settings instead of Vi settings
+set nocompatible
+set shell=bash
+set backspace=indent,eol,start "make backspace behave in a sane manner.
+
+" Change the leader. Must be put before the vundle plugins load (if there are any)
+"let mapleader=","
+
+" ========== Appearance ==========
+
+set t_Co=256 "terminal color scheme
+
+syntax on "switch on syntax highlighting
+
 "colorscheme hemisu
 "colorscheme mayansmoke
-set nobackup
-set noswapfile
-set nocompatible
-set scrolloff=3
+
+set number "show line number
+set scrolloff=3 "minimum number of lines below the cursor
+
 highlight NonText ctermfg=lightgray
 highlight SpecialKey ctermfg=lightgray
-set list listchars=tab:▸\ ,trail:·ٰ,eol:¬
-nmap <leader>l :set list!<CR>
-nmap ; :
-set incsearch
-set hlsearch
 
-" Make backspace behave in a sane manner.
-set backspace=indent,eol,start
+set list listchars=tab:▸\ ,trail:·ٰ,eol:¬ "visually display tabs, trailing spaces and ends of lines
 
-" Switch syntax highlighting on
-syntax on
+set showmatch "highlight matching brace
 
-" Enable file type detection and do language-dependent indenting.
-filetype plugin indent on
+:set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%) "change status line style
 
-set expandtab
-set showmatch
-set autoindent
+" ========== Indentation ==========
 
-" make searches case-sensitive only if they contain upper-case characters
-set ignorecase smartcase
+set expandtab "space characters when the tab is pressed
+set autoindent "copy previous line indentation when starting a new line
+filetype plugin indent on "enable file type detection and do language-dependent indenting
 
-" highlight current line
-"set cursorline
+" ========== Backup settings ==========
 
-set shell=bash
+set nobackup
+set noswapfile
 
 " Store temporary files in a central spot
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
-" use emacs-style tab completion when selecting files, etc
-set wildmode=longest,list
+" ========== Search settings ==========
 
-" make tab completion for files/buffers act like bash
-set wildmenu
+set incsearch "Find the text as you type"
+set hlsearch "Highlight all search results"
+set ignorecase smartcase "make searches case-sensitive only if they contain upper-case characters
 
-"let mapleader=","
+" ========== Completion ==========
 
-:set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
+set wildmode=longest,list "use emacs-style tab completion when selecting files, etc
+set wildmenu "make tab completion for files/buffers act like bash
 
+" ========== Mappings ==========
+
+" A set list command shortcut
+nmap <leader>l :set list!<CR>
+
+" Use ; instead of : for vim commands
+nmap ; :
