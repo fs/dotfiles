@@ -29,7 +29,7 @@ There's a few special files in the hierarchy.
 
 ## Credits
 
-OS X Bootstrap is maintained by [Timur Vafin](http://github.com/timurvafin).
+Flatstack dotfiles is maintained by [Timur Vafin](http://github.com/timurvafin).
 It was written by [Zack Holman](https://github.com/holman/dotfiles) with the help of
 [contributors](http://github.com/fs/dotfiles/contributors).
 
