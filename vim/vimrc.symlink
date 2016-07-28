@@ -4,6 +4,7 @@
 set nocompatible
 set shell=bash
 set backspace=indent,eol,start "make backspace behave in a sane manner.
+set encoding=utf-8 "set default encoding to UTF-8
 
 " Change the leader. Must be put before the vundle plugins load (if there are any)
 "let mapleader=","
@@ -16,9 +17,14 @@ syntax on "switch on syntax highlighting
 
 "colorscheme hemisu
 "colorscheme mayansmoke
+"colorscheme solarized
 
+set background=dark "use dark background for Vim theme
 set number "show line number
+set laststatus=2 "display status line status
 set scrolloff=3 "minimum number of lines below the cursor
+set mousehide "hide mouse cursor
+set relativenumber "show relative line number
 
 highlight NonText ctermfg=lightgray
 highlight SpecialKey ctermfg=lightgray
@@ -26,6 +32,7 @@ highlight SpecialKey ctermfg=lightgray
 set list listchars=tab:▸\ ,trail:·ٰ,eol:¬ "visually display tabs, trailing spaces and ends of lines
 
 set showmatch "highlight matching brace
+set ttyfast "faster scrolling
 
 :set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%) "change status line style
 
@@ -33,6 +40,8 @@ set showmatch "highlight matching brace
 
 set expandtab "space characters when the tab is pressed
 set autoindent "copy previous line indentation when starting a new line
+set foldmethod=indent "fold by indents
+set tabstop=2 shiftwidth=2 expandtab "default indents params for all files
 filetype plugin indent on "enable file type detection and do language-dependent indenting
 
 " ========== Backup settings ==========
@@ -63,3 +72,14 @@ nmap <leader>l :set list!<CR>
 
 " Use ; instead of : for vim commands
 nmap ; :
+
+" Escape by double press J
+imap jj <ESC>
+
+" ========== Miscellaneous ==========
+
+" Set Iterm2 cursors
+if $TERM_PROGRAM =~ "iTerm"
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
+endif
