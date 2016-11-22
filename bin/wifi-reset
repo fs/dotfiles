@@ -2,5 +2,20 @@
 
 set -e
 
+green=$(tput setaf 2)
+color_reset=$(tput sgr0)
+
+info_echo() {
+  printf "\n${green}%s ...${color_reset}\n" "$1"
+}
+
+info_echo "Reset Wi-Fi and wait"
 networksetup -setairportpower en0 off
 networksetup -setairportpower en0 on
+sleep 1
+
+info_echo "Ping Google"
+ping -c 1 google.com
+
+info_echo "Calculate current speed"
+/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I|grep lastTxRate
