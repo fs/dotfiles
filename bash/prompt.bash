@@ -60,8 +60,7 @@ git_state() {
   GIT_PS1_SHOWUNTRACKEDFILES=1
   GIT_PS1_SHOWUPSTREAM="auto"
 
-  command -v __git_ps1 > /dev/null
-  if [ $? -eq 0 ]
+  if command -v __git_ps1 > /dev/null
   then
     echo "${EMMAGENTA}$(__git_ps1 ' (%s)')${COLOREND}"
   fi
@@ -72,7 +71,9 @@ prompt_time() {
 }
 
 prompt() {
-  if [[ $? -eq 0 ]]; then
+  ret_value=$?
+
+  if [[ ret_value -eq 0 ]]; then
     exit_status="${GREEN} › ${COLOREND}"
   else
     exit_status="${RED} › ${COLOREND}"
