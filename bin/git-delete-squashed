@@ -1,3 +1,24 @@
 #!/usr/bin/env bash
 
-git checkout -q master && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done
+set -e
+
+# default integration branch
+integration=${1:-master}
+
+# list of local branches
+branches=$(git for-each-ref refs/heads/ "--format=%(refname:short)")
+
+# checkout integration branch
+git checkout -q "$integration"
+
+# iterate over branches
+for branch in $branches
+do
+  merge_base=$(git merge-base "$integration" "$branch")
+  branch_ref=$(git rev-parse "$branch^{tree}")
+  commit=$(git commit-tree "$branch_ref" -p "$merge_base" -m _)
+
+  # make sure changes exist in integration branch
+  # and remove compared branch
+  [[ $(git cherry "$integration" "$commit") == "-"* ]] && git branch -D "$branch"
+done
