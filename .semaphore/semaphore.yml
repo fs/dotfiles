@@ -25,3 +25,7 @@ blocks:
         commands:
           - brew install shellcheck
           - script/quality
+
+      - name: ci
+        commands:
+          - script/ci
