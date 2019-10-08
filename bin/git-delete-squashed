@@ -18,6 +18,8 @@ do
   branch_ref=$(git rev-parse "$branch^{tree}")
   commit=$(git commit-tree "$branch_ref" -p "$merge_base" -m _)
 
+  # echo "$branch - $commit"
+
   # make sure changes exist in integration branch
   # and remove compared branch
   [[ $(git cherry "$integration" "$commit") == "-"* ]] && git branch -D "$branch"
