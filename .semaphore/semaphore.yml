@@ -26,7 +26,7 @@ blocks:
           - brew install shellcheck
           - script/quality
 
-      - name: ci
+      - name: setup & unlink
         commands:
           - cp -R ~/dotfiles ~/.dotfiles
           - script/setup.exp
