@@ -1,7 +1,5 @@
 # dotfiles
 
-[![Build Status](https://travis-ci.org/fs/dotfiles.svg)](https://travis-ci.org/fs/dotfiles)
-
 ## Install
 
 ```bash
