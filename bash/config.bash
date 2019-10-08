@@ -5,7 +5,7 @@ bind '"\e[B": history-search-forward'
 
 export ARCHFLAGS='-arch x86_64'
 
-export LC_CTYPE=ru_RU.UTF-8
+export LC_CTYPE=en_US.UTF-8
 
 export VISUAL="subl"
 export EDITOR="$VISUAL"
