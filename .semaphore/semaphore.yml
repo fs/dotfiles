@@ -28,4 +28,6 @@ blocks:
 
       - name: ci
         commands:
-          - script/ci
+          - cp -R ~/dotfiles ~/.dotfiles
+          - script/setup.exp
+          - script/unlink
