@@ -24,4 +24,4 @@ blocks:
       - name: quality
         commands:
           - brew install shellcheck
-          - bin/quality
+          - script/quality
