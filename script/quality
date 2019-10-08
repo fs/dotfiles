@@ -2,4 +2,4 @@
 
 set -e
 
-shellcheck -s bash --exclude=SC2034,SC2028,SC1090 ./**/*.bash script/*
+shellcheck -s bash --exclude=SC2034,SC2028,SC1090,SC2046 ./**/*.bash script/*
