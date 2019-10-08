@@ -1,4 +1,6 @@
-#!/usr/bin/env expect -f
+#!/usr/bin/env expect
+
+set -f
 
 spawn ./script/setup
 expect " - What is your github author name?"
