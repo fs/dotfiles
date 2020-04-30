@@ -24,6 +24,9 @@ export HISTCONTROL=ignoredups
 export HISTCONTROL=ignoreboth
 export HISTIGNORE="&:ls:[bf]g:exit"
 
+# Hide "default interactive shell is now zsh"
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 shopt -s histappend
 shopt -s cmdhist
 shopt -s checkwinsize
