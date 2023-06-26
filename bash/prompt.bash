@@ -1,4 +1,5 @@
-git_prompt=/usr/local/etc/bash_completion.d/git-prompt.sh
+git_prompt="$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
+
 [ -f $git_prompt ] && source $git_prompt
 
 # regular colors
