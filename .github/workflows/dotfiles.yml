@@ -1,0 +1,27 @@
+name: Dotfiles
+
+on: [push, pull_request]
+
+env:
+  HOMEBREW_NO_AUTO_UPDATE: "true"
+
+jobs:
+  test:
+    name: Test
+    runs-on: macos-latest
+    timeout-minutes: 60
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: quality
+      run: |
+        brew install shellcheck
+        script/quality
+
+    - name: setup & unlink
+      run: |
+        cp -R ~/dotfiles ~/.dotfiles
+        script/setup.exp
+        script/unlink
