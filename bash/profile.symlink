@@ -2,6 +2,10 @@
 export PATH=/usr/local/bin:${PATH%:/usr/local/bin}
 export PATH=/usr/local/sbin:${PATH%:/usr/local/sbin}
 
+# fix Brew path
+export PATH=/opt/homebrew/bin:$PATH
+export PATH=/opt/homebrew/sbin:$PATH
+
 # shortcut to this dotfiles path is $DOTFILES
 export DOTFILES=$HOME/.dotfiles
 
