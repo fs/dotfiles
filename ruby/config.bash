@@ -5,4 +5,6 @@
 # export RUBY_HEAP_FREE_MIN=500000
 
 export BUNDLER_EDITOR=subl
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+
+RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+export RUBY_CONFIGURE_OPTS
